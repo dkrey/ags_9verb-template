@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    
+    <title>Extensions</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="top" title="9-verb_MI-style 1.4 documentation" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="extensions">
+<span id="id1"></span><h1>Extensions</h1>
+<p><a class="reference internal" href="#removeextension"><em>RemoveExtension</em></a>
+<a class="reference internal" href="#addextension"><em>AddExtension</em></a>
+<a class="reference internal" href="#extension"><em>Extension</em></a>
+<a class="reference internal" href="#extensionex"><em>ExtensionEx</em></a>
+<a class="reference internal" href="#opencloseextension"><em>OpenCloseExtension</em></a>
+<a class="reference internal" href="#variableextensions"><em>VariableExtensions</em></a></p>
+<p>Extensions are used to define the default action for the right-click. You can add extensions to characters, hotspots, objects and inventory items.
+To add an extension, e.g. chose an object in the room editor and take a look at the description (not the name).
+In the sample room, we have an object, called Cup. In addition to the name we have an angle bracket and the letter p:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">Cup</span><span class="o">&gt;</span><span class="n">p</span>
+</pre></div>
+</div>
+<p>The bracket acts as a seperator for the extension, the letter tells the script, which default action to use. By default, the template knows about the following extensions:</p>
+<ul class="simple">
+<li>n: nothing / default</li>
+<li>g: give to</li>
+<li>p: pick up</li>
+<li>u: use</li>
+<li>o: open</li>
+<li>l: look at</li>
+<li>s: push</li>
+<li>c: close</li>
+<li>t: talk to</li>
+<li>y: pull</li>
+<li>v: variable extension</li>
+<li>e: exit</li>
+</ul>
+<p>If you like to customize or add these extensions, take a look at the function CheckDefaultAction.</p>
+<p>You don&#8217;t have to add an extension for every object and hotspot. The template also adds some default actions on it&#8217;s own.
+The default action for Characters is &#8220;talk to&#8221;, for Hotspots and Objects, it&#8217;s look at.
+Inventory items are handled a little differently, the right-click always causes &#8220;look at&#8221;, no matter what. If you left-click an
+item, it&#8217;s usually &#8220;use with&#8221;. But if you have added the extension &#8220;u&#8221;, the action will be simply &#8220;use&#8221;.
+Clicking the verb button &#8220;use&#8221; and the item afterwards would cause the same action. But it could seem a little bit unpredictable,
+whether an item can used by a verb button or not. With this shortcut you can make things a little bit easier.
+You can see this behaviour in the sample room, when opening the letter. Otherwise you would have needed something else to interact with it.
+But with the use-extension, it is getting opened by a single left-click. The exit extension is covered in the following chapter.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="9verb_actions.html#checkdefaultaction"><em>CheckDefaultAction</em></a></p>
+<span class="target" id="removeextension"></span><div class="section" id="index-0">
+<span id="id2"></span><h2>RemoveExtension</h2>
+<div class="highlight-python"><div class="highlight"><pre>function RemoveExtension();
+</pre></div>
+</div>
+<p>Used to remove the extension from a location (Hotspots, Objects etc.), so it doesn&#8217;t get displayed in the status bar.</p>
+<span class="target" id="addextension"></span></div>
+<div class="section" id="index-1">
+<span id="id3"></span><h2>AddExtension</h2>
+<div class="highlight-python"><div class="highlight"><pre>function AddExtension(char extension);
+</pre></div>
+</div>
+<p>Used to add a default extension in case the location doesn&#8217;t have one.</p>
+<span class="target" id="extension"></span></div>
+<div class="section" id="index-2">
+<span id="id4"></span><h2>Extension</h2>
+<div class="highlight-python"><div class="highlight"><pre>char Extension();
+</pre></div>
+</div>
+<p>Returns the first extention of a location.</p>
+<span class="target" id="extensionex"></span></div>
+<div class="section" id="index-3">
+<span id="id5"></span><h2>ExtensionEx</h2>
+<div class="highlight-python"><div class="highlight"><pre>char ExtensionEx(int index, String name);
+</pre></div>
+</div>
+<p>Returns the n-th extension of the given string. This is currently used for exit extensions.</p>
+<span class="target" id="opencloseextension"></span></div>
+<div class="section" id="index-4">
+<span id="id6"></span><h2>OpenCloseExtension</h2>
+<div class="highlight-python"><div class="highlight"><pre>function OpenCloseExtension(int door_id);
+</pre></div>
+</div>
+<p>Used in combination with the door scripts. This function returns a close extension, if the door with the given id is open and vice versa.</p>
+<span class="target" id="variableextensions"></span></div>
+<div class="section" id="index-5">
+<span id="id7"></span><h2>VariableExtensions</h2>
+<div class="highlight-python"><div class="highlight"><pre>function VariableExtensions();
+</pre></div>
+</div>
+<p>This function is called, if you have have set &#8220;v&#8221; as an extension for a certain location. Currently it is used for the OpenClose extension,
+but of course you can add your own variable extensions here, for example &#8220;turn on / turn off&#8221;.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, AGS Community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

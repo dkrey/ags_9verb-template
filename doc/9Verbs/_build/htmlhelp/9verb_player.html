@@ -1,0 +1,301 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    
+    <title>Player functions</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="top" title="9-verb_MI-style 1.4 documentation" href="index.html" />
+    <link rel="next" title="Door functions" href="9verb_door.html" />
+    <link rel="prev" title="Action Functions" href="9verb_actions.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="9verb_door.html" title="Door functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="9verb_actions.html" title="Action Functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="player-functions">
+<h1>Player functions</h1>
+<p><a class="reference internal" href="#freeze-player"><em>freeze_player</em></a>
+<a class="reference internal" href="#unfreeze-player"><em>unfreeze_player</em></a>
+<a class="reference internal" href="#setplayer"><em>SetPlayer</em></a>
+<a class="reference internal" href="#facedirection"><em>FaceDirection</em></a>
+<a class="reference internal" href="#enterroom"><em>EnterRoom</em></a></p>
+<span class="target" id="freeze-player"></span><div class="section" id="index-0">
+<span id="id1"></span><h2>freeze_player</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">freeze_player</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Use this function to prevent the player from moving by the following movement functions of the template.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#unfreeze-player"><em>unfreeze_player</em></a></p>
+<span class="target" id="unfreeze-player"></span></div>
+<div class="section" id="index-1">
+<span id="id2"></span><h2>unfreeze_player</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">unfreeze_player</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Use this function to undo the freeze_player function and let the characters move again.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#freeze-player"><em>freeze_player</em></a></p>
+<span class="target" id="setplayer"></span></div>
+<div class="section" id="index-2">
+<span id="id3"></span><h2>SetPlayer</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">SetPlayer</span><span class="p">(</span><span class="n">Character</span><span class="o">*</span><span class="n">ch</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Usage:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">cEgo</span><span class="p">.</span><span class="n">SetPlayer</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Similar to the AGS function Character.SetAsPlayer(). The difference is, that make the previous character clickable again, whereas the new character gets unclickable.</p>
+<span class="target" id="facedirection"></span></div>
+<div class="section" id="index-3">
+<span id="id4"></span><h2>FaceDirection</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">FaceDirection</span> <span class="p">(</span><span class="n">this</span> <span class="n">Character</span><span class="o">*</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">dir</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Usage:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">cEgo</span><span class="p">.</span><span class="n">FaceDirection</span><span class="p">(</span><span class="n">eDir_Left</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Similar to the AGS function Character.FaceLocation. Possible directions are:
+eDir_Left, eDir_Right, eDir_Up, eDir_Down</p>
+<span class="target" id="enterroom"></span></div>
+<div class="section" id="index-4">
+<span id="id5"></span><h2>EnterRoom</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">EnterRoom</span><span class="p">(</span><span class="n">this</span> <span class="n">Character</span><span class="o">*</span><span class="p">,</span> <span class="kt">int</span> <span class="n">newRoom</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">dir</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">onWalkable</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Usage:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">cEgo</span><span class="p">.</span><span class="n">EnterRoom</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="n">eDir_Left</span><span class="p">,</span><span class="nb">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Similar to the AGS function Character.ChangeRoom. The difference is, that you can also define, it which direction the character should look.
+Using this function makes the character turn to the direction, mentioned above.</p>
+</div>
+</div>
+<div class="section" id="semi-blocking-movement-functions">
+<h1>Semi-blocking movement functions</h1>
+<p>Semi-blocking means, that you can cancel the movement, but certain code is only executed, after the character has actually reached it&#8217;s goal.
+To archive this, these functions are called inside an if-clause.</p>
+<p>Example:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">if</span><span class="p">(</span><span class="n">MovePlayer</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">))</span> <span class="n">Display</span><span class="p">(</span><span class="s">&quot;The player has reached the destination.&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If the player&#8217;s character reaches the coordinates 20,20, the message &#8220;I&#8217;m there&#8221; is being displayed.
+If the movement is being cancelled by a mouseclick, the message doesn&#8217;t appear.</p>
+<p><a class="reference internal" href="#moveplayer"><em>MovePlayer</em></a>
+<a class="reference internal" href="#moveplayerex"><em>MovePlayerEx</em></a>
+<a class="reference internal" href="#gotocharacter"><em>GoToCharacter</em></a>
+<a class="reference internal" href="#gotocharacterex"><em>GoToCharacterEx</em></a>
+<a class="reference internal" href="#npcgotocharacter"><em>NPCGoToCharacter</em></a>
+<a class="reference internal" href="#any-click-move"><em>any_click_move</em></a>
+<a class="reference internal" href="#any-click-walk"><em>any_click_walk</em></a>
+<a class="reference internal" href="#any-click-walk-look"><em>any_click_walk_look</em></a>
+<a class="reference internal" href="#any-click-walk-look-pick"><em>any_click_walk_look_pick</em></a>
+<a class="reference internal" href="#any-click-use-inv"><em>any_click_use_inv</em></a>
+<a class="reference internal" href="#goto"><em>GoTo</em></a>
+<a class="reference internal" href="#go"><em>Go</em></a>
+<a class="reference internal" href="#walkoffscreen"><em>WalkOffScreen</em></a>
+<a class="reference internal" href="#set-approaching-char"><em>set_approaching_char</em></a></p>
+<span class="target" id="moveplayer"></span><div class="section" id="index-5">
+<span id="id6"></span><h2>MovePlayer</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">MovePlayer</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Moves the player character around on walkable areas, a wrapper for MovePlayerEx.
+Returns 1, if the character has reached it&#8217;s goal and 0 if the movement has been cancelled before.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#moveplayerex"><em>MovePlayerEx</em></a></p>
+<span class="target" id="moveplayerex"></span></div>
+<div class="section" id="index-6">
+<span id="id7"></span><h2>MovePlayerEx</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">MovePlayerEx</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">WalkWhere</span> <span class="n">direct</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Move the player character to x,y coords, waiting until he/she gets there, but allowing to cancel the action by pressing a mouse button.
+Returns 1, if the character hasn&#8217;t cancelled the movement and 0 if the movement has been cancelled before.
+2 is returned, if the characters has actually reached it&#8217;s goal: eg. if a walkable area is being removed while the player is still moving.</p>
+<span class="target" id="gotocharacter"></span></div>
+<div class="section" id="index-7">
+<span id="id8"></span><h2>GoToCharacter</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">GoToCharacter</span><span class="p">(</span><span class="n">Character</span><span class="o">*</span><span class="n">charid</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">dir</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">NPCfacesplayer</span><span class="p">,</span> <span class="kt">int</span> <span class="n">blocking</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The same as GoToCharacterEx, just with the one character being the player and a default offset of x=35px and y=20px.
+Returns 1, if the character has reached it&#8217;s goal and 0 if the movement has been cancelled before.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#gotocharacterex"><em>GoToCharacterEx</em></a></p>
+<span class="target" id="gotocharacterex"></span></div>
+<div class="section" id="index-8">
+<span id="id9"></span><h2>GoToCharacterEx</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">GoToCharacterEx</span><span class="p">(</span><span class="n">Character</span><span class="o">*</span><span class="n">chwhogoes</span><span class="p">,</span> <span class="n">Character</span><span class="o">*</span><span class="n">ch</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">dir</span><span class="p">,</span> <span class="kt">int</span> <span class="n">xoffset</span><span class="p">,</span> <span class="kt">int</span> <span class="n">yoffset</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">NPCfacesplayer</span><span class="p">,</span> <span class="kt">int</span> <span class="n">blocking</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Goes to a character staying at the side defined by &#8216;direction&#8217;: 1 up, 2 right, 3 down, 4 left and it stays at xoffset or yofsset from the character.
+blocking: 0=non-blocking; 1=blocking; 2=semi-blocking
+Returns 1, if the character has reached it&#8217;s goal and 0 if the movement has been cancelled before.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#gotocharacter"><em>GoToCharacter</em></a>,
+<a class="reference internal" href="#npcgotocharacter"><em>NPCGoToCharacter</em></a></p>
+<span class="target" id="npcgotocharacter"></span></div>
+<div class="section" id="index-9">
+<span id="id10"></span><h2>NPCGoToCharacter</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">NPCGoToCharacter</span><span class="p">(</span><span class="n">Character</span><span class="o">*</span><span class="n">charidwhogoes</span><span class="p">,</span> <span class="n">Character</span><span class="o">*</span><span class="n">charidtogoto</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">dir</span><span class="p">,</span> <span class="kt">bool</span> <span class="n">NPCfacesplayer</span><span class="p">,</span> <span class="kt">int</span> <span class="n">blocking</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The same as GoToCharacterEx, just with an default offset of x=35 and y=20
+Returns 1, if the character has reached it&#8217;s goal and 0 if the movement has been cancelled before.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#gotocharacterex"><em>GoToCharacterEx</em></a></p>
+<span class="target" id="any-click-move"></span></div>
+<div class="section" id="index-10">
+<span id="id11"></span><h2>any_click_move</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">any_click_move</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">dir</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Moves the player character to the coordinates given in the parameters. If the player reaches the destination, it&#8217;s turns to the given direction.
+Returns 1, if the character has reached it&#8217;s goal and 0 if the movement has been cancelled before.
+You can use this kind of functions (including the movePlayer function which is called by this function),
+to check if the player actually reached it&#8217;s destination. For example:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">any_click_move</span><span class="p">(</span><span class="mi">130</span><span class="p">,</span><span class="mi">110</span><span class="p">,</span><span class="n">eDir_Left</span><span class="p">)</span><span class="o">==</span><span class="mi">1</span><span class="p">)</span> <span class="n">player</span><span class="p">.</span><span class="n">Say</span><span class="p">(</span><span class="s">&quot;I&#39;ve reached the place.&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>So the Message is only displayed, if the movement hasn&#8217;t been cancelled.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#moveplayer"><em>MovePlayer</em></a>,
+<a class="reference internal" href="#moveplayerex"><em>MovePlayerEx</em></a></p>
+<span class="target" id="any-click-walk"></span></div>
+<div class="section" id="index-11">
+<span id="id12"></span><h2>any_click_walk</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">any_click_walk</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">dir</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This function is almost similar to any_click_move. But it&#8217;s only called, if the current action is eMA_WalkTo.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#moveplayer"><em>MovePlayer</em></a>,
+<a class="reference internal" href="#moveplayerex"><em>MovePlayerEx</em></a>,
+<a class="reference internal" href="#any-click-move"><em>any_click_move</em></a></p>
+<span class="target" id="any-click-walk-look"></span></div>
+<div class="section" id="index-12">
+<span id="id13"></span><h2>any_click_walk_look</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">any_click_walk_look</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">dir</span><span class="p">,</span> <span class="n">String</span> <span class="n">lookat</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This function moves the player character to the given location, turns it to the given direction and lets it say the message, given in the string.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#any-click-walk"><em>any_click_walk</em></a></p>
+<span class="target" id="any-click-walk-look-pick"></span></div>
+<div class="section" id="index-13">
+<span id="id14"></span><h2>any_click_walk_look_pick</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">any_click_walk_look_pick</span><span class="p">(</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">dir</span><span class="p">,</span> <span class="n">String</span> <span class="n">lookat</span><span class="p">,</span> <span class="kt">int</span> <span class="n">objectID</span><span class="p">,</span> <span class="n">InventoryItem</span><span class="o">*</span><span class="n">item</span><span class="p">,</span> <span class="n">AudioClip</span> <span class="o">*</span><span class="n">sound</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This function starts the same as any_click_walk_look. If an object ID &gt; 0 has been given, this object is set invisible. Afterwards the inventory item is going to be added to the player&#8217;s inventory and if there&#8217;s an audioclip in the parameters, that one is played too.</p>
+<p>The function return 0 if the action has been cancelled, before the player has reached the coordinates. 1 is returned if the player has reached the given destination, but has not picked up the item. 2 is returned, if the item has been picked up.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#any-click-walk-look"><em>any_click_walk_look</em></a>,
+<a class="reference internal" href="#any-click-walk"><em>any_click_walk</em></a></p>
+<span class="target" id="any-click-use-inv"></span></div>
+<div class="section" id="index-14">
+<span id="id15"></span><h2>any_click_use_inv</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">any_click_use_inv</span> <span class="p">(</span><span class="n">InventoryItem</span><span class="o">*</span><span class="n">item</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">dir</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This function moves the player to the given destination. It returns 0, if the action is unhandled, 1 is returned,
+if the action is handled, but has been cancelled. 2 is returned, if everything went fine. A possible usage is:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">any_click_use_inv</span> <span class="p">(</span><span class="n">iWrench</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">130</span><span class="p">,</span><span class="n">eDir_Left</span><span class="p">)</span><span class="o">==</span><span class="mi">2</span><span class="p">)</span> <span class="n">player</span><span class="p">.</span><span class="n">Say</span><span class="p">(</span><span class="s">&quot;I will now repair this pipe.&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p><em>See also:</em>
+<a class="reference internal" href="#any-click-walk-look"><em>any_click_walk_look</em></a>,
+<a class="reference internal" href="#any-click-walk"><em>any_click_walk</em></a></p>
+<span class="target" id="goto"></span></div>
+<div class="section" id="index-15">
+<span id="id16"></span><h2>GoTo</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">GoTo</span><span class="p">(</span><span class="kt">int</span> <span class="n">blocking</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Go to whatever the player clicked on. This function is used to intercept a walk-to event and check if the player has reached it&#8217;s goal.
+E.g. this is used in the exit extension processing.
+blocking: 0=non-blocking; 1=blocking; 2=semi-blocking</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#go"><em>Go</em></a>,
+<a class="reference internal" href="#moveplayer"><em>MovePlayer</em></a>,
+<a class="reference internal" href="#walkoffscreen"><em>WalkOffScreen</em></a></p>
+<span class="target" id="go"></span></div>
+<div class="section" id="index-16">
+<span id="id17"></span><h2>Go</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">Go</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Goes to whatever the player clicked on. You can cancel the action, and returns 1 if the player has gone to it. This is just a shortcut for GoTo(2), which means semi-blockable.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#goto"><em>GoTo</em></a></p>
+<span class="target" id="walkoffscreen"></span></div>
+<div class="section" id="index-17">
+<span id="id18"></span><h2>WalkOffScreen</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">WalkOffScreen</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Handles the action of hotspots or objects with the exit extension (&#8216;&gt;e&#8217;). Take a look at chapter about extensions to see what this function does.</p>
+<p><em>See also:</em>
+<em class="xref std std-ref">Extensions</em></p>
+<span class="target" id="set-approaching-char"></span></div>
+<div class="section" id="index-18">
+<span id="id19"></span><h2>set_approaching_char</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">set_approaching_char</span><span class="p">(</span><span class="kt">bool</span> <span class="n">enable</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>If set to true, the player walks to other chars before talking or giving items. This behaviour is initially defined in the guiscript, this function is used to change it during runtime.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="9verb_door.html" title="Door functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="9verb_actions.html" title="Action Functions"
+             >previous</a> |</li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, AGS Community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

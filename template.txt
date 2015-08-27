@@ -1,0 +1,5 @@
+Welcome to the Lucasarts-style 9-verb template!
+
+If you're just starting off with AGS, you might find it easier to use the Default Game template to begin with.
+
+When using this template, make sure you read the "9Verbs.pdf" help file so that you understand how to use it!

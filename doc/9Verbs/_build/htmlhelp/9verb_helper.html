@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    
+    <title>Math and Helper Functions</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="top" title="9-verb_MI-style 1.4 documentation" href="index.html" />
+    <link rel="next" title="Action Functions" href="9verb_actions.html" />
+    <link rel="prev" title="Introduction" href="9verb_intro.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="9verb_actions.html" title="Action Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="9verb_intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="math-and-helper-functions">
+<h1>Math and Helper Functions</h1>
+<p><a class="reference internal" href="#absolute"><em>Absolute</em></a>
+<a class="reference internal" href="#offset"><em>Offset</em></a>
+<a class="reference internal" href="#getbuttonaction"><em>getButtonAction</em></a>
+<a class="reference internal" href="#disable-gui"><em>disable_gui</em></a>
+<a class="reference internal" href="#enable-gui"><em>enable_gui</em></a>
+<a class="reference internal" href="#is-gui-disabled"><em>is_gui_disabled</em></a>
+<a class="reference internal" href="#globalcondition"><em>GlobalCondition</em></a>
+<a class="reference internal" href="#getlucassavegamelistbox"><em>GetLucasSavegameListBox</em></a>
+<a class="reference internal" href="#initguilanguage"><em>InitGuiLanguage</em></a>
+<a class="reference internal" href="#getinteger"><em>getInteger</em></a>
+<a class="reference internal" href="#cleartospace"><em>clearToSpace</em></a></p>
+<span class="target" id="absolute"></span><div class="section" id="index-0">
+<span id="id1"></span><h2>Absolute</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">Absolute</span><span class="p">(</span><span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Returns the absolute value of a given value.</p>
+<span class="target" id="offset"></span></div>
+<div class="section" id="index-1">
+<span id="id2"></span><h2>Offset</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">Offset</span><span class="p">(</span><span class="kt">int</span> <span class="n">point1</span><span class="p">,</span> <span class="kt">int</span> <span class="n">point2</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Returns the offset between to two given values.</p>
+<span class="target" id="getbuttonaction"></span></div>
+<div class="section" id="index-2">
+<span id="id3"></span><h2>getButtonAction</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">getButtonAction</span><span class="p">(</span><span class="kt">int</span> <span class="n">action</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Returns the connected action of a verb button. The actions for the verb buttons are not &#8220;hard-wired&#8221; inside the GUI-script, but defined in the function SetButtonAction.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="9verb_actions.html#setactionbuttons"><em>SetActionButtons</em></a>,
+<a class="reference internal" href="9verb_translation.html#adjustlanguage"><em>AdjustLanguage</em></a></p>
+<span class="target" id="disable-gui"></span></div>
+<div class="section" id="index-3">
+<span id="id4"></span><h2>disable_gui</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">disable_gui</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This functions disables the GUI and hides it.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#is-gui-disabled"><em>is_gui_disabled</em></a>,
+<a class="reference internal" href="#enable-gui"><em>enable_gui</em></a></p>
+<span class="target" id="enable-gui"></span></div>
+<div class="section" id="index-4">
+<span id="id5"></span><h2>enable_gui</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">enable_gui</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This function enables the GUI again.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#is-gui-disabled"><em>is_gui_disabled</em></a>,
+<a class="reference internal" href="#disable-gui"><em>disable_gui</em></a></p>
+<span class="target" id="is-gui-disabled"></span></div>
+<div class="section" id="index-5">
+<span id="id6"></span><h2>is_gui_disabled</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">bool</span> <span class="nf">is_gui_disabled</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>Returns true, if the GUI is currently disabled, false otherwise</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#disable-gui"><em>disable_gui</em></a></p>
+<span class="target" id="globalcondition"></span></div>
+<div class="section" id="index-6">
+<span id="id7"></span><h2>GlobalCondition</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">GlobalCondition</span><span class="p">(</span><span class="kt">int</span> <span class="n">parameter</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Used to check for conditions that are used many times in the script. For example, it&#8217;s used to check, if the mouse cursor is in the inventory and the mode walk or pickup are selected.
+Returns 1, if the condition is true and 0 otherwise.</p>
+<span class="target" id="getlucassavegamelistbox"></span></div>
+<div class="section" id="index-7">
+<span id="id8"></span><h2>GetLucasSavegameListBox</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">GetLucasSavegameListBox</span><span class="p">(</span><span class="n">ListBox</span><span class="o">*</span><span class="n">lb</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This is a helper function to initialize the save and restore dialogs.</p>
+<span class="target" id="initguilanguage"></span></div>
+<div class="section" id="index-8">
+<span id="id9"></span><h2>InitGuiLanguage</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">InitGuiLanguage</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This is a helper function to set the correct sprites for the verb GUI.</p>
+<span class="target" id="getinteger"></span></div>
+<div class="section" id="index-9">
+<span id="id10"></span><h2>getInteger</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">getInteger</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This function returns the first integer value of the internal variable &#8220;numbers&#8221; and calls the function clearToSpace to overwrite that number with blank characters.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#cleartospace"><em>clearToSpace</em></a></p>
+<span class="target" id="cleartospace"></span></div>
+<div class="section" id="index-10">
+<span id="id11"></span><h2>clearToSpace</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">String</span> <span class="nf">clearToSpace</span><span class="p">(</span><span class="n">String</span> <span class="n">text</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This function overwrites the first value or word from the given string with blank characters. Afterwards the new string is being returned.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#getinteger"><em>getInteger</em></a></p>
+</div>
+</div>
+<div class="section" id="unhandled-events">
+<h1>Unhandled Events</h1>
+<p>In order to give a the player a feedback for actions the author hasn&#8217;t thought of, unhandled events come into play.
+With a single function, you can achieve something like &#8220;That doesn&#8217;t work&#8221; or &#8220;I can&#8217;t pull that&#8221;,
+which makes a game much more authentic and alive.</p>
+<span class="target" id="unhandled"></span><div class="section" id="index-11">
+<span id="id12"></span><h2>Unhandled</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">Unhandled</span><span class="p">(</span><span class="kt">int</span> <span class="n">door_script</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Use this function at the end of your any_click functions in order to cause default reactions. For example:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">cChar_AnyClick</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">UsedAction</span><span class="p">(</span><span class="n">eGA_LookAt</span><span class="p">))</span> <span class="n">player</span><span class="p">.</span><span class="n">Say</span><span class="p">(</span><span class="s">&quot;He looks like he is hungry.&quot;</span><span class="p">);</span>
+        <span class="k">else</span> <span class="n">Unhandled</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>In this example, you get a default reaction for everything but look at. The optional parameter is only used internally to make the function work with the door scripts.</p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="9verb_actions.html" title="Action Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="9verb_intro.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, AGS Community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

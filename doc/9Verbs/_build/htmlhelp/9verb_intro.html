@@ -1,0 +1,235 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    
+    <title>Introduction</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="top" title="9-verb_MI-style 1.4 documentation" href="index.html" />
+    <link rel="next" title="Math and Helper Functions" href="9verb_helper.html" />
+    <link rel="prev" title="Welcome to 9-verb_MI-style’s documentation!" href="index.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="9verb_helper.html" title="Math and Helper Functions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to 9-verb_MI-style’s documentation!"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<h1>Introduction</h1>
+<p><em>9-verb MI-Style</em>
+is a template that allows you to recreate those classic SCUMM games.</p>
+<p>If you like to create a game with this template, you have to re-think some concepts, you usually use when creating a game with AGS.</p>
+<p>The two new concepts are: event handling and default actions, using extensions.</p>
+<p>Let&#8217;s take a look at the event handling, or in other words: stuff that happens after you have clicked on something.
+Normally you create a function for each event of an object, a hotspot etc. Functions like cup_Interact() or cup_Look().
+Using this template you only need one the any click event. Inside these functions you
+distinguish between the different interactions. So a typical any_click function looks like this:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">cup_AnyClick</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="c1">// LOOK AT</span>
+        <span class="k">if</span><span class="p">(</span><span class="n">UsedAction</span><span class="p">(</span><span class="n">eGA_LookAt</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">player</span><span class="p">.</span><span class="n">Say</span><span class="p">(</span><span class="s">&quot;It&#39;s a blue cup.&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// USE</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">UsedAction</span><span class="p">(</span><span class="n">eGA_Use</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">player</span><span class="p">.</span><span class="n">Say</span><span class="p">(</span><span class="s">&quot;I&#39;d rather pick it up.&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">// PICKUP</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">UsedAction</span><span class="p">(</span><span class="n">eGA_PickUp</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">player</span><span class="p">.</span><span class="n">Say</span><span class="p">(</span><span class="s">&quot;Okay.&quot;</span><span class="p">);</span>
+                <span class="n">any_click_walk_look_pick</span><span class="p">(</span><span class="mi">108</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">eDir_Up</span><span class="p">,</span> <span class="s">&quot;You are now mine.&quot;</span><span class="p">,</span><span class="n">oCup</span><span class="p">.</span><span class="n">ID</span><span class="p">,</span> <span class="n">iCup</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="c1">//USE INV</span>
+        <span class="k">else</span> <span class="k">if</span><span class="p">(</span><span class="n">UsedAction</span><span class="p">(</span><span class="n">eGA_UseInv</span><span class="p">))</span> <span class="p">{</span>
+                <span class="n">Unhandled</span><span class="p">();</span>
+        <span class="p">}</span>
+        <span class="c1">// don&#39;t forget this</span>
+        <span class="k">else</span> <span class="n">Unhandled</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The function &#8220;any_click_walk_look_pick&#8221; is explained in the scripting reference.
+<a class="reference internal" href="9verb_player.html#any-click-walk-look-pick"><em>any_click_walk_look_pick</em></a></p>
+<p>So you see, everything is inside a single function, instead 4 seperate functions. Also instead of checking the cursormodes, the function UsedAction is called to
+determine the event/action. The current defined actions are:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">eGA_LookAt</span><span class="p">,</span> <span class="n">eGA_TalkTo</span><span class="p">,</span> <span class="n">eGA_GiveTo</span><span class="p">,</span> <span class="n">eGA_PickUp</span><span class="p">,</span> <span class="n">eGA_Use</span><span class="p">,</span> <span class="n">eGA_Open</span><span class="p">,</span> <span class="n">eGA_Close</span><span class="p">,</span> <span class="n">eGA_Push</span><span class="p">,</span> <span class="n">eGA_Pull</span><span class="p">,</span><span class="n">eGA_UseInv</span><span class="p">,</span> <span class="n">eMA_Default</span> <span class="n">and</span> <span class="n">eMA_WalkTo</span>
+</pre></div>
+</div>
+<p>For inventory items, it&#8217;s a little bit different, because there is no any_click event in the room editor. So you first start with &#8220;other click on inventory item&#8221;,
+which creates the function iCup_OtherClick (in case you have an item, called iCup).
+Now copy this function name and paste it at other events, like Interact, look, talk and so on. In the end, you only have one function name in all five events.
+You can also take a look at the sample items.</p>
+<p>The second main aspect of the GUI are the extensions. You add an extension to a location (Hotspots, Objects etc.) by
+editing its description.</p>
+<p>For example, let&#8217;s take an object. In the sample room, the object is called oCup and the description is simply &#8220;Cup&#8221;. When move the cursor over this cup
+and no extension is defined, the default action will be &#8220;look at&#8221;. Also the corresponding verb button in the gui starts to highlight.
+Now we can change this behaviour with adding an angeled bracket, followed by one of the following letters:</p>
+<ul class="simple">
+<li>n: nothing / default</li>
+<li>g: give to</li>
+<li>p: pick up</li>
+<li>u: use</li>
+<li>o: open</li>
+<li>l: look at</li>
+<li>s: push</li>
+<li>c: close</li>
+<li>t: talk to</li>
+<li>y: pull</li>
+<li>v: variable extension</li>
+<li>e: exit</li>
+</ul>
+<p>Let&#8217;s give oCup the description &#8220;Cup&gt;p&#8221;. Now the right-click action has changed. If you now move the mouse on the cup, the verb button &#8220;Pick Up&#8221; is highlighted.
+If you right-click the object, the any_click function from above is called. It checks for the used action and will perform the chosen action.
+<a class="reference internal" href="9verb_extension.html#extensions"><em>Extensions</em></a> are also explained in the function reference.</p>
+<p>The last thing you should know about, is the global variable &#8220;ItemGiven&#8221;. If you like to give an item to a character, use this variable to check,
+which item has been given. For example:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">UsedAction</span><span class="p">(</span><span class="n">eGA_GiveTo</span><span class="p">))</span>
+<span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">ItemGiven</span> <span class="o">==</span> <span class="n">iCup</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">player</span><span class="p">.</span><span class="n">Say</span><span class="p">(</span><span class="s">&quot;Do you want this Cup?&quot;</span><span class="p">);</span>
+                <span class="n">cBman</span><span class="p">.</span><span class="n">Say</span><span class="p">(</span><span class="s">&quot;No, thank you.&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="n">ItemGiven</span> <span class="o">==</span> <span class="n">iKey</span><span class="p">)</span>
+        <span class="p">{</span>
+                <span class="n">player</span><span class="p">.</span><span class="n">Say</span><span class="p">(</span><span class="s">&quot;Is that your key?&quot;</span><span class="p">);</span>
+                <span class="n">cBman</span><span class="p">.</span><span class="n">Say</span><span class="p">(</span><span class="s">&quot;Of course. You have it from me.&quot;</span><span class="p">);</span>
+        <span class="p">}</span>
+        <span class="k">else</span> <span class="n">Unhandled</span><span class="p">();</span>
+<span class="p">}</span>
+<span class="k">else</span> <span class="n">Unhandled</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>If you need to use &#8220;ItemGiven&#8221; in other scripts than the global one, you need to import it manually. It&#8217;s not defined via global variable pane inside the AGS editor.</p>
+</div>
+<div class="section" id="using-inventory-items">
+<h1>Using Inventory Items</h1>
+<p>There are currently three ways of using an inventory item, you can choose from.</p>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>&#8220;Use&#8221; only</dt>
+<dd><p class="first last">For this, you need to add the use-extention &#8220;&gt;u&#8221; to the description of the item and an event function for &#8220;Interact inventory item&#8221;.
+If you have followed the instructions in this manual you probably already have it there. This option might come handy for a watch.
+Clicking on it always gives you the current time.       You can not give it away or use it with different items.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>&#8220;Use&#8221; and &#8220;Use with&#8221;</dt>
+<dd><p class="first last">Here you need to remove the use-extension from the description, but still keep the event function.
+This allows the player to directly use the item by clicking on the &#8220;use&#8221;-verb first. Directly clicking the items results in &#8220;use-with&#8221;. Sticking
+to the watch-example: using the watch with the verb-button sets an alarm. Clicking directly on it in the inventory results in &#8220;use with&#8221;,
+so you can use the watch with a shelf to hide it there. But please note that it might be hard for the player to understand,
+that using the verb button and using the inventory directly are two different things.</p>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>&#8220;Use with&#8221; only</dt>
+<dd><p class="first last">For the last option, you need to remove the use-extension and remove the event function.
+Yep, that&#8217;s right: on the right side of &#8220;Interact inventory item&#8221; is no function at all.
+If you then use the item, whether it&#8217;s via the verb-button or a direct click, the action always stays &#8220;use with&#8221;.</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<div class="section" id="exit-extensions">
+<h1>Exit Extensions</h1>
+<p>As of version 1.1 you can add an exit extension to hotspots and objects. Clicking on such a hotspot will make the player walk to it and change the room afterwards.
+There are several advantages compared to the usual methods like &#8216;screen edges&#8217; or stand-on hotspot functions:</p>
+<ul class="simple">
+<li>works with objects and vertical hotspots (like cave entrances)</li>
+<li>supports double click to skip the walking</li>
+<li>optional walking off the screen: if you set the exit hotspot towards a screen edge, you can make the player leave the screen and change the room after that.</li>
+</ul>
+<p>This is how it works:
+First of all create your hotspot and let it have the &#8216;&gt;e&#8217; extension. Now switch over to the events (that little flash) and add the Usermode_1 hotspot event.
+Eventually you&#8217;ll end in the room script with a function called &#8216;hExit_Mode8&#8217;.
+In that function, all you have to do is to script the room change. e.g.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">player</span><span class="p">.</span><span class="n">EnterRoom</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">111</span><span class="p">,</span> <span class="n">eDir_Right</span><span class="p">,</span> <span class="nb">true</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This function is almost similar to the AGS function player.ChangeRoom, you can look it up in the function reference below.
+If you want the player to leave the screen, you have to change the extension of the hotspot. These ones are possible:</p>
+<ul class="simple">
+<li>el: left</li>
+<li>er: right</li>
+<li>eu: up</li>
+<li>ed: down</li>
+</ul>
+<p>If you have an exit on the right side of your screen and want the player to leave the screen on that side, your hotspot description should be called:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">Exit</span><span class="o">&gt;</span><span class="n">er</span>
+</pre></div>
+</div>
+<p>Now the character will walk to the clicked location and keeps on walking for another 30 extra pixels.
+That offset can be changed in the script header.
+If you simply call your hotspot:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">Exit</span><span class="o">&gt;</span><span class="n">e</span>
+</pre></div>
+</div>
+<p>No additional walking will occur. This is useful for exits not being at the screen border. There&#8217;s also an example in the second room of the demo template.</p>
+</div>
+<div class="section" id="language-translation">
+<h1>Language &amp; Translation</h1>
+<p>Currently (v 1.4) the GUI supports German, French, Spanish and Portuguese. If you like to help translating this template, please drop me a PM at the AGS Forums.</p>
+<p>If you like to create your game in a different language than english, you need to set it up. At guiscript.asc you&#8217;ll find the line:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="n">lang</span> <span class="o">=</span> <span class="n">eLangEN</span><span class="p">;</span>
+</pre></div>
+</div>
+<p>At the time of writing, valid values are: eLangEN, eLangES, eLangFR and eLangDE. Setting this variable to one of these values will translate all your GUIs,
+including all provided dialogs. The unhandled events will stay unchanged however. Those are still needed to be changed directly.
+To switch the language in a .trs translation file, tell your translators to look out for the line.</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">GUI_LANGUAGE</span>
+</pre></div>
+</div>
+<p>Now simply translate that line with <em>DE, EN, ES, FR or PT</em> to set the GUI to the corresponding language.</p>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="9verb_helper.html" title="Math and Helper Functions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Welcome to 9-verb_MI-style’s documentation!"
+             >previous</a> |</li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, AGS Community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

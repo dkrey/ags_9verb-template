@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    
+    <title>Translation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="top" title="9-verb_MI-style 1.4 documentation" href="index.html" />
+    <link rel="prev" title="Door functions" href="9verb_door.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="9verb_door.html" title="Door functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="translation">
+<h1>Translation</h1>
+<p><a class="reference internal" href="#translateaction"><em>TranslateAction</em></a>
+<a class="reference internal" href="#adjustlanguage"><em>AdjustLanguage</em></a></p>
+<p>To make the verbs work with translations, strings are being used to define the button graphics, hotkeys and so on.
+If you like to customize your game or get it translated, you need to take a closer look at the function AdjustLanguage.
+The functions getInteger and clearToSpace are being used to extract the informations from those white space seperated strings.</p>
+<span class="target" id="translateaction"></span><div class="section" id="index-0">
+<span id="id1"></span><h2>TranslateAction</h2>
+<div class="highlight-python"><div class="highlight"><pre>function TranslateAction(int action, int tr_lang);
+</pre></div>
+</div>
+<p>This function defines the text for the verb buttons, e.g. if you click on the talk verb button, &#8220;Talk to&#8221; is being displayed in the action/status bar. The second parameter defines the returned language. If you want to customize this text, you have to edit this function.</p>
+<span class="target" id="adjustlanguage"></span></div>
+<div class="section" id="index-1">
+<span id="id2"></span><h2>AdjustLanguage</h2>
+<div class="highlight-python"><div class="highlight"><pre>function AdjustLanguage();
+</pre></div>
+</div>
+<p>This function has to be called from inside the global script&#8217;s game_start() function.
+It sets up everything related to the verb buttons, so you need to take a look at this, if you want to customize your GUI.
+It is also import to understand, how this function works, if you want to get you game translated.
+If you take a closer look at this function, you will notice the following lines:</p>
+<div class="highlight-python"><div class="highlight"><pre>SetActionButtons(eGA_GiveTo, &quot;a_button_give
+        0
+        1
+        2
+        Gg&quot;);
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>SetActionButtons(eGA_PickUp, &quot;a_button_pick_up
+        1
+        7
+        8
+        Pp&quot;);
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>SetActionButtons(eGA_Use, &quot;a_button_use
+        2
+        13
+        14
+        Uu&quot;);
+</pre></div>
+</div>
+<p>and so on.</p>
+<p>Your verb buttons are initialized here, by calling the function SetActionButtons.
+The first parameter is the action being called by the button, the second one is a string containing the following informations:
+* Name
+* GUI-button ID
+* Spriteslot normal
+* Sprite slot highlighted
+* Keyboard-Shortcut.</p>
+<p>So all those parameters are encapsulated inside a string, sepereated by white spaces.
+It doesn&#8217;t matter, how many spaces are used to seperate the parameters, as long as it is at least a single blank character.</p>
+<p>This line</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">SetActionButtons</span><span class="p">(</span><span class="n">eGA_GiveTo</span><span class="p">,</span> <span class="s">&quot;a_button_give 0 1 2 Gg&quot;</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>tells the AGS:</p>
+<ul class="simple">
+<li>The button for the action eGA_GiveTo is named &#8220;a_button_give&#8221; (also this information is not being used outside of this function).</li>
+<li>The buttons has the GUI-ID 0. If you take a look at the GUI &#8220;gMaingui&#8221;, you can see several buttons. The one with the ID 0 will be used for the action you define here.</li>
+<li>The button will use the spriteslot 1 as the default graphic and</li>
+<li>spriteslot 2, if it&#8217;s highlighted. This can be a little bit confusing, since if you look at gMaingui, those graphics have already been assigned. But you also need to define the graphics slots in this function, because eventually these are the ones being used.</li>
+<li>The last parameter defines the hotkey for this action.</li>
+</ul>
+<p>You might wonder, why this function overrides the values of gMaingui.
+But in some other languages the translation for use could be a very long word, so you might want to swap it with something else.
+E.g. in german &#8220;use&#8221; means &#8220;Benutze&#8221;, so you need more space for the verb. But &#8220;pick up&#8221; can be translated to &#8220;nimm&#8221;, so you save some space here.
+Now in your translation file (e.g: german.tra), you can simply swap the button with GUI of the english &#8220;pick up&#8221; with the german &#8220;Benutze&#8221;.</p>
+<div class="line-block">
+<div class="line">a_button_use</div>
+<div class="line">1 794 795 Bb</div>
+</div>
+<p><em>Of course you don&#8217;t have to do that for the languages already provided</em></p>
+<p>This function also sets up the fonts for every written text (Option GUI, Status Bar and so on). This is done by this string:</p>
+<div class="highlight-python"><div class="highlight"><pre>font_info=GetTranslation(&quot;font_320: 1
+0
+0
+0
+0
+0
+0
+3
+0
+0
+0
+0
+0
+3
+3&quot;);
+</pre></div>
+</div>
+<p>Each numer stands for a text element. The first number is the spoken text, the second number defines the font in the status bar. The other columns are explained in the code itself, if you&#8217;d like to customize them.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="9verb_actions.html#setactionbuttons"><em>SetActionButtons</em></a></p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="9verb_door.html" title="Door functions"
+             >previous</a> |</li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, AGS Community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

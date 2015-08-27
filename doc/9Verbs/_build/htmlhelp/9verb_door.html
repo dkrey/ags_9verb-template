@@ -1,0 +1,209 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    
+    <title>Door functions</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="top" title="9-verb_MI-style 1.4 documentation" href="index.html" />
+    <link rel="prev" title="Player functions" href="9verb_player.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="9verb_player.html" title="Player functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="door-functions">
+<h1>Door functions</h1>
+<p><a class="reference internal" href="#set-door-state"><em>set_door_state</em></a>
+<a class="reference internal" href="#get-door-state"><em>get_door_state</em></a>
+<a class="reference internal" href="#init-object"><em>init_object</em></a>
+<a class="reference internal" href="#set-door-strings"><em>set_door_strings</em></a>
+<a class="reference internal" href="#get-door-strings"><em>get_door_strings</em></a>
+<a class="reference internal" href="#any-click-on-door"><em>any_click_on_door</em></a>
+<a class="reference internal" href="#any-click-on-door-special"><em>any_click_on_door_special</em></a></p>
+<p>This template implements a clever door scripting system, which is a real timesaver if you use a lot of doors.
+It uses a hotspot for the closed door and a non-clickable object, to show the opened door.
+If you enter a room the first time, you have to set up its containing doors:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">room_FirstLoad</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="c1">// Lock door on startup when entering the room</span>
+        <span class="n">set_door_state</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="p">);</span>
+        <span class="n">init_object</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">oDoor</span><span class="p">.</span><span class="n">ID</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This will set up a door with the id 20 to the state 2, locked. With &#8220;init_object&#8221;, you connect the object, displaying a sprite of an opened door, with the door ID.
+Now let&#8217;s take a look at your hotspot&#8217;s function:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">hDoor_AnyClick</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">any_click_on_door</span><span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="n">oDoor</span><span class="p">.</span><span class="n">ID</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="n">eDir_Left</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">115</span><span class="p">,</span> <span class="mi">135</span><span class="p">,</span> <span class="n">eDir_Down</span><span class="p">)</span><span class="o">==</span><span class="mi">0</span><span class="p">)</span> <span class="n">Unhandled</span><span class="p">();</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>This function is explained in detail later in this document. But for starters, this is all you have to do in the room script.
+And looks much harder than it is, just take a look at the sample room, supplied with this template.</p>
+<p>If you want to have the script to show the correct default actions, you also need to change a line in the gui-script:
+so look for a function, called VariableExtensions.
+In VariableExtensions, look at this line:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">if</span> <span class="p">(</span><span class="n">r</span><span class="o">==</span><span class="mi">1</span> <span class="o">&amp;&amp;</span> <span class="n">h</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">OpenCloseExtension</span> <span class="p">(</span><span class="mi">20</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This tells the script, that Room 1 contains a hotspot with the id 1. This is connected to a door a door with the id 20.
+So now, the right-click should suggest open/close, depending on the door&#8217;s state.</p>
+<span class="target" id="set-door-state"></span><div class="section" id="index-0">
+<span id="id1"></span><h2>set_door_state</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">set_door_state</span><span class="p">(</span><span class="kt">int</span> <span class="n">door_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">value</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Call this function to set a door state for the given door_id.
+A door can have 3 different states:</p>
+<ul class="simple">
+<li>0 = The door is closed</li>
+<li>1 = The door is open</li>
+<li>2 = The door is closed and locked</li>
+</ul>
+<p><em>See also:</em>
+<a class="reference internal" href="#get-door-state"><em>get_door_state</em></a>,
+<a class="reference internal" href="#init-object"><em>init_object</em></a></p>
+<span class="target" id="get-door-state"></span></div>
+<div class="section" id="index-1">
+<span id="id2"></span><h2>get_door_state</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">get_door_state</span><span class="p">(</span><span class="kt">int</span> <span class="n">door_id</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Returns the current state of a door.</p>
+<p>0 = The door is closed
+1 = The door is open
+2 = The door is closed and locked</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#set-door-state"><em>set_door_state</em></a>,
+<a class="reference internal" href="#init-object"><em>init_object</em></a></p>
+<span class="target" id="init-object"></span></div>
+<div class="section" id="index-2">
+<span id="id3"></span><h2>init_object</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">init_object</span><span class="p">(</span><span class="kt">int</span> <span class="n">door_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">act_object</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Used to set up the corresponding object, used by the door with the given id. If the state of the door is closed, the object will be invisible.
+Otherwise, the object will be shown. The object stays unclickable all the time.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#set-door-state"><em>set_door_state</em></a></p>
+<span class="target" id="set-door-strings"></span></div>
+<div class="section" id="index-3">
+<span id="id4"></span><h2>set_door_strings</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">set_door_strings</span><span class="p">(</span><span class="n">String</span> <span class="n">lookat</span><span class="p">,</span> <span class="n">String</span> <span class="n">islocked</span><span class="p">,</span> <span class="n">String</span> <span class="n">wrongitem</span><span class="p">,</span> <span class="n">String</span> <span class="n">closefirst</span><span class="p">,</span> <span class="n">String</span> <span class="n">unlock</span><span class="p">,</span> <span class="n">String</span> <span class="n">relock</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Use this function to define the messages, the player character says, when approaching a door.</p>
+<p><em>lookat</em>
+: shown, if the player looks at the door
+<em>islocked</em>
+: shown, if the player tries to open a locked door
+<em>wrongitem</em>
+: shown, it the player tries to unlock the door with a wrong item
+<em>closefirst</em>
+: shown, if the player wants to lock a opened door
+<em>relock</em>
+: shown, if the player locks a previously unlocked door</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#get-door-strings"><em>get_door_strings</em></a></p>
+<span class="target" id="get-door-strings"></span></div>
+<div class="section" id="index-4">
+<span id="id5"></span><h2>get_door_strings</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">String</span> <span class="nf">get_door_strings</span><span class="p">(</span><span class="n">String</span> <span class="n">what_type</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Returns the message, which has been set up by set_door_strings. Accepted parameters are:</p>
+<ul class="simple">
+<li>lookat, islocked, wrongitem, closefirst, relock</li>
+</ul>
+<p>Remember, that these are strings, so don&#8217;t forget the quotation marks.</p>
+<p>Usage:</p>
+<div class="highlight-c"><div class="highlight"><pre><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="n">String</span><span class="p">.</span><span class="n">IsNullOrEmpty</span><span class="p">(</span><span class="n">get_door_strings</span><span class="p">(</span><span class="s">&quot;islocked&quot;</span><span class="p">)))</span> <span class="n">player</span><span class="p">.</span><span class="n">Say</span><span class="p">(</span><span class="n">get_door_strings</span><span class="p">(</span><span class="s">&quot;islocked&quot;</span><span class="p">));</span>
+</pre></div>
+</div>
+<p><em>See also:</em>
+<a class="reference internal" href="#set-door-strings"><em>set_door_strings</em></a></p>
+<span class="target" id="any-click-on-door"></span></div>
+<div class="section" id="index-5">
+<span id="id6"></span><h2>any_click_on_door</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">any_click_on_door</span><span class="p">(</span><span class="kt">int</span> <span class="n">door_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">act_object</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">dir</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nr_room</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nr_x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nr_y</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">nr_dir</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This function is used in the room script in combination with the door hotspot.
+Parameters:</p>
+<ul class="simple">
+<li>door_id: The door id, you have defined</li>
+<li>act_object: The object, containing the open sprite</li>
+<li>x,y: the walk-to point of the door (please don&#8217;t use the built in &#8220;walk-to coordinates&#8221; feature of the room editor.</li>
+<li>dir: the direction, the player&#8217;s character should face, after it reached x,y</li>
+<li>nr_room: if the door is opened and walking through it, the player is being send to this room</li>
+<li>nr_x,nr_y: the x,y coordinates of inside of the new room</li>
+<li>nr_dir: after the room change, the player faces this direction</li>
+</ul>
+<p>This is the main function of the door scripts. With this you connect the hotspot with the door and the player&#8217;s action.
+If you have defined default door sounds, these are also being called in this function. Also you can&#8217;t unlock a door with this function.
+You need any_click_on_door_special for that.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#any-click-on-door-special"><em>any_click_on_door_special</em></a></p>
+<span class="target" id="any-click-on-door-special"></span></div>
+<div class="section" id="index-6">
+<span id="id7"></span><h2>any_click_on_door_special</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">int</span> <span class="nf">any_click_on_door_special</span> <span class="p">(</span><span class="kt">int</span> <span class="n">door_id</span><span class="p">,</span> <span class="kt">int</span> <span class="n">act_object</span><span class="p">,</span> <span class="kt">int</span> <span class="n">x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">y</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">dir</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nr_room</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nr_x</span><span class="p">,</span> <span class="kt">int</span> <span class="n">nr_y</span><span class="p">,</span> <span class="n">eDirection</span> <span class="n">nr_dir</span><span class="p">,</span> <span class="n">AudioClip</span> <span class="o">*</span><span class="n">opensound</span><span class="p">,</span> <span class="n">AudioClip</span> <span class="o">*</span><span class="n">closesound</span><span class="p">,</span> <span class="kt">int</span> <span class="n">key</span><span class="p">,</span> <span class="kt">int</span> <span class="n">closevalue</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This function extends any_click_door with the following parameters:</p>
+<ul class="simple">
+<li>opensound: custom sound to be played, when the door is being opend</li>
+<li>closesound: custom sound to be played, when the door is being closed</li>
+<li>key: the id of the inventory item, that can unlock the door, -1 masterkey, -2 if the door cannot be unlocked</li>
+<li>closevalue: default 0 (closed), but you can also set 2 (locked).</li>
+</ul>
+<p><em>See also:</em>
+<a class="reference internal" href="#any-click-on-door"><em>any_click_on_door</em></a></p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="9verb_player.html" title="Player functions"
+             >previous</a> |</li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, AGS Community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>

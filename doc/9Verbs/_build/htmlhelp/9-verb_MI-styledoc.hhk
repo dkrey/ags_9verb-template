@@ -1,0 +1,218 @@
+<UL>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="Absolute">
+    <param name="Local" value="9verb_helper.html#index-0">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="AddExtension">
+    <param name="Local" value="9verb_extension.html#index-1">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="AdjustLanguage">
+    <param name="Local" value="9verb_translation.html#index-1">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="any_click_move">
+    <param name="Local" value="9verb_player.html#index-10">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="any_click_on_door">
+    <param name="Local" value="9verb_door.html#index-5">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="any_click_on_door_special">
+    <param name="Local" value="9verb_door.html#index-6">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="any_click_use_inv">
+    <param name="Local" value="9verb_player.html#index-14">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="any_click_walk">
+    <param name="Local" value="9verb_player.html#index-11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="any_click_walk_look">
+    <param name="Local" value="9verb_player.html#index-12">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="any_click_walk_look_pick">
+    <param name="Local" value="9verb_player.html#index-13">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="CheckDefaultAction">
+    <param name="Local" value="9verb_actions.html#index-6">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="clearToSpace">
+    <param name="Local" value="9verb_helper.html#index-10">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="disable_gui">
+    <param name="Local" value="9verb_helper.html#index-3">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="enable_gui">
+    <param name="Local" value="9verb_helper.html#index-4">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="EnterRoom">
+    <param name="Local" value="9verb_player.html#index-4">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="Extension">
+    <param name="Local" value="9verb_extension.html#index-2">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="ExtensionEx">
+    <param name="Local" value="9verb_extension.html#index-3">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="FaceDirection">
+    <param name="Local" value="9verb_player.html#index-3">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="freeze_player">
+    <param name="Local" value="9verb_player.html#index-0">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="get_door_state">
+    <param name="Local" value="9verb_door.html#index-1">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="get_door_strings">
+    <param name="Local" value="9verb_door.html#index-4">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="getButtonAction">
+    <param name="Local" value="9verb_helper.html#index-2">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="getInteger">
+    <param name="Local" value="9verb_helper.html#index-9">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="GetLucasSavegameListBox">
+    <param name="Local" value="9verb_helper.html#index-7">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="GlobalCondition">
+    <param name="Local" value="9verb_helper.html#index-6">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="Go">
+    <param name="Local" value="9verb_player.html#index-16">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="GoTo">
+    <param name="Local" value="9verb_player.html#index-15">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="GoToCharacter">
+    <param name="Local" value="9verb_player.html#index-7">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="GoToCharacterEx">
+    <param name="Local" value="9verb_player.html#index-8">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="init_object">
+    <param name="Local" value="9verb_door.html#index-2">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="InitGuiLanguage">
+    <param name="Local" value="9verb_helper.html#index-8">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="is_gui_disabled">
+    <param name="Local" value="9verb_helper.html#index-5">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="isAction">
+    <param name="Local" value="9verb_actions.html#index-1">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="MovePlayer">
+    <param name="Local" value="9verb_player.html#index-5">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="MovePlayerEx">
+    <param name="Local" value="9verb_player.html#index-6">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="NPCGoToCharacter">
+    <param name="Local" value="9verb_player.html#index-9">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="Offset">
+    <param name="Local" value="9verb_helper.html#index-1">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="OpenCloseExtension">
+    <param name="Local" value="9verb_extension.html#index-4">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="RemoveExtension">
+    <param name="Local" value="9verb_extension.html#index-0">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="set_approaching_char">
+    <param name="Local" value="9verb_player.html#index-18">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="set_door_state">
+    <param name="Local" value="9verb_door.html#index-0">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="set_door_strings">
+    <param name="Local" value="9verb_door.html#index-3">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="SetAction">
+    <param name="Local" value="9verb_actions.html#index-4">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="SetActionButtons">
+    <param name="Local" value="9verb_actions.html#index-2">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="SetAlternativeAction">
+    <param name="Local" value="9verb_actions.html#index-5">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="SetDefaultAction">
+    <param name="Local" value="9verb_actions.html#index-3">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="SetPlayer">
+    <param name="Local" value="9verb_player.html#index-2">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="TranslateAction">
+    <param name="Local" value="9verb_translation.html#index-0">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="unfreeze_player">
+    <param name="Local" value="9verb_player.html#index-1">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="Unhandled">
+    <param name="Local" value="9verb_helper.html#index-11">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="UpdateActionBar">
+    <param name="Local" value="9verb_actions.html#index-7">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="UsedAction">
+    <param name="Local" value="9verb_actions.html#index-0">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="VariableExtensions">
+    <param name="Local" value="9verb_extension.html#index-5">
+</OBJECT>
+<LI> <OBJECT type="text/sitemap">
+    <param name="Keyword" value="WalkOffScreen">
+    <param name="Local" value="9verb_player.html#index-17">
+</OBJECT>
+</UL>

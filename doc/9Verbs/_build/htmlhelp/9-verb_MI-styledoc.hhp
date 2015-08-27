@@ -1,0 +1,41 @@
+[OPTIONS]
+Binary TOC=No
+Binary Index=No
+Compiled file=9-verb_MI-styledoc.chm
+Contents file=9-verb_MI-styledoc.hhc
+Default Window=9-verb_MI-styledoc
+Default topic=index.html
+Display compile progress=No
+Full text search stop list file=9-verb_MI-styledoc.stp
+Full-text search=Yes
+Index file=9-verb_MI-styledoc.hhk
+Language=0x409
+Title=9-verb_MI-style 1.4 documentation
+
+[WINDOWS]
+9-verb_MI-styledoc="9-verb_MI-style 1.4 documentation","9-verb_MI-styledoc.hhc","9-verb_MI-styledoc.hhk","index.html","index.html",,,,,0x63520,220,0x10384e,[0,0,1024,768],,,,,,,0
+
+[FILES]
+9verb_actions.html
+9verb_door.html
+9verb_extension.html
+9verb_helper.html
+9verb_intro.html
+9verb_player.html
+9verb_translation.html
+genindex.html
+index.html
+_static\ajax-loader.gif
+_static\basic.css
+_static\comment-bright.png
+_static\comment-close.png
+_static\comment.png
+_static\default.css
+_static\down-pressed.png
+_static\down.png
+_static\file.png
+_static\minus.png
+_static\plus.png
+_static\pygments.css
+_static\up-pressed.png
+_static\up.png

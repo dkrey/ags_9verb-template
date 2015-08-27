@@ -1,0 +1,136 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=cp1252" />
+    
+    <title>Action Functions</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="top" title="9-verb_MI-style 1.4 documentation" href="index.html" />
+    <link rel="prev" title="Math and Helper Functions" href="9verb_helper.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="9verb_helper.html" title="Math and Helper Functions"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="action-functions">
+<h1>Action Functions</h1>
+<p>These functions are mainly used to control the verb buttons.</p>
+<p><a class="reference internal" href="#usedaction"><em>UsedAction</em></a>
+<a class="reference internal" href="#isaction"><em>isAction</em></a>
+<a class="reference internal" href="#setactionbuttons"><em>SetActionButtons</em></a>
+<a class="reference internal" href="#setdefaultaction"><em>SetDefaultAction</em></a>
+<a class="reference internal" href="#setaction"><em>SetAction</em></a>
+<a class="reference internal" href="#setalternativeaction"><em>SetAlternativeAction</em></a>
+<a class="reference internal" href="#checkdefaultaction"><em>CheckDefaultAction</em></a>
+<a class="reference internal" href="#updateactionbar"><em>UpdateActionBar</em></a></p>
+<span class="target" id="usedaction"></span><div class="section" id="index-0">
+<span id="id1"></span><h2>UsedAction</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">UsedAction</span> <span class="p">(</span><span class="n">Action</span> <span class="n">test_action</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Used to determine, which action has been selected by the player. Instead of checking cursor modes, this function is used.</p>
+<span class="target" id="isaction"></span></div>
+<div class="section" id="index-1">
+<span id="id2"></span><h2>isAction</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="kt">bool</span> <span class="nf">isAction</span><span class="p">(</span><span class="n">Action</span> <span class="n">test_action</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Used to check, if the current action is the one, given in the parameter.</p>
+<span class="target" id="setactionbuttons"></span></div>
+<div class="section" id="index-2">
+<span id="id3"></span><h2>SetActionButtons</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">SetActionButtons</span><span class="p">(</span><span class="n">Action</span> <span class="n">action</span><span class="p">,</span> <span class="n">String</span> <span class="n">button_definition</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This functions connects the verb buttons with the action and is also used to assign / change the graphics of the verb buttons.</p>
+<p><em>See also:</em>
+<em class="xref std std-ref">AdjustLanguage</em></p>
+<span class="target" id="setdefaultaction"></span></div>
+<div class="section" id="index-3">
+<span id="id4"></span><h2>SetDefaultAction</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">SetDefaultAction</span><span class="p">(</span><span class="n">Action</span> <span class="n">def_action</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Used to define, which action is being used, if no verb has been clicked. Usually this is &#8220;walk to&#8221;.</p>
+<span class="target" id="setaction"></span></div>
+<div class="section" id="index-4">
+<span id="id5"></span><h2>SetAction</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">SetAction</span><span class="p">(</span><span class="n">Action</span> <span class="n">new_action</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>Since the cursor modes are bypassed, this function defines the current action. Among other things, this function is called by clicking a verb button.</p>
+<span class="target" id="setalternativeaction"></span></div>
+<div class="section" id="index-5">
+<span id="id6"></span><h2>SetAlternativeAction</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">SetAlternativeAction</span><span class="p">(</span><span class="kt">char</span> <span class="n">extension</span><span class="p">,</span> <span class="n">Action</span> <span class="n">alt_action</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>This function makes the right-click shortcuts work. If you use extensions like &#8220;&gt;p&#8221; (e.g. pickup), this function makes sure, that the correct verb button is highlighted.</p>
+<p><em>See also:</em>
+<a class="reference internal" href="#checkdefaultaction"><em>CheckDefaultAction</em></a></p>
+<span class="target" id="checkdefaultaction"></span></div>
+<div class="section" id="index-6">
+<span id="id7"></span><h2>CheckDefaultAction</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">CheckDefaultAction</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This function checks for a given extension in hotspots, objects and characters. If there isn&#8217;t an extension, a default action is given, e.g.
+&#8220;Talk to&#8221; if the mouse is over a character. In case of a given extension, the default actions are being overridden.
+It is also defined here, which letters are causing what default action. See the chapter Extensions for more details.</p>
+<p><em>See also:</em>
+<em class="xref std std-ref">Extensions</em></p>
+<span class="target" id="updateactionbar"></span></div>
+<div class="section" id="index-7">
+<span id="id8"></span><h2>UpdateActionBar</h2>
+<div class="highlight-c"><div class="highlight"><pre><span class="n">function</span> <span class="nf">UpdateActionBar</span><span class="p">();</span>
+</pre></div>
+</div>
+<p>This function is used to show and update the status bar. It checks for an extension, triggers the translation and renders the results on screen.</p>
+<p><em>See also:</em>
+<em class="xref std std-ref">TranslateAction</em>,
+<em class="xref std std-ref">RemoveExtension</em></p>
+</div>
+</div>
+
+
+          </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="9verb_helper.html" title="Math and Helper Functions"
+             >previous</a> |</li>
+        <li><a href="index.html">9-verb_MI-style 1.4 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2014, AGS Community.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3b1.
+    </div>
+  </body>
+</html>
