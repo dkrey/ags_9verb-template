@@ -34,6 +34,7 @@
 struct CustomDialogGui {
   import function init();
   DialogOptionsRenderingInfo *dialog_window;
+  bool hide_gui_while_dialog;
   int gui_xpos;
   int gui_ypos;
   int gui_width;

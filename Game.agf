@@ -6,9 +6,9 @@
       <GameName xml:space="preserve">9-verb MI-style</GameName>
       <UniqueID>2030906</UniqueID>
       <GUIDAsString>{1cd27f32-afe9-4791-904f-95b428001734}</GUIDAsString>
-      <ColorDepth>HighColor</ColorDepth>
+      <ColorDepth>TrueColor</ColorDepth>
       <Resolution>R320x200</Resolution>
-      <GraphicsDriver>DX5</GraphicsDriver>
+      <GraphicsDriver>D3D9</GraphicsDriver>
       <CompressSprites>False</CompressSprites>
       <SaveScreenshots>False</SaveScreenshots>
       <RoomTransition>BlackBoxOut</RoomTransition>
@@ -4251,7 +4251,7 @@ stop]]></Script>
                 <Name>Dialogscript</Name>
                 <Description>simplified fork of CDG</Description>
                 <Author>abstauber</Author>
-                <Version>1.0</Version>
+                <Version>1.1</Version>
                 <Key>551174665</Key>
                 <IsHeader>False</IsHeader>
               </Script>
@@ -4275,7 +4275,7 @@ stop]]></Script>
                 <Name>9-Verb MI-Style</Name>
                 <Description>9Verb GUI functions</Description>
                 <Author>Authors named in header file</Author>
-                <Version>1.5</Version>
+                <Version>1.5.1</Version>
                 <Key>1562295785</Key>
                 <IsHeader>False</IsHeader>
               </Script>

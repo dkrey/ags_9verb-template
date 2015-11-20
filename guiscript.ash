@@ -1,6 +1,6 @@
 // Script header
 // 9-verb MI-style template
-// Version: 1.5
+// Version: 1.5.1
 //
 // Authors: 
 //   Proskrito      first release
@@ -62,11 +62,15 @@
 //        added option to choose if player should approch characters for talking
 //        renamed fonts and removed an obsolete one
 //        bugfixes
-//
 // 1.5    support for AGS 3.4
 //        added custom dialog rendering
 //        adapted eDirection to enum CharacterDirection (and removed eDir_none)
 //        fixed talk-to and pickup interactions on inv items
+//
+// 1.5.1  switched to 32-bit and D3D9 by default
+//        exit rooms via doubleclick now works on objects
+//        option to hide the main gui during dialogs
+//        
 //
 // Licence:
 //
