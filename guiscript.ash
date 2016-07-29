@@ -66,17 +66,19 @@
 //        added custom dialog rendering
 //        adapted eDirection to enum CharacterDirection (and removed eDir_none)
 //        fixed talk-to and pickup interactions on inv items
-//
 // 1.5.1  switched to 32-bit and D3D9 by default
 //        exit rooms via doubleclick now works on objects
 //        option to hide the main gui during dialogs
+//
+// 1.5.2  bugfix regarding inventory using keyboard shortcuts
+//        added option disable the doubleclick entirely
 //        
 //
 // Licence:
 //
 // The MIT License (MIT)
 // 
-// Copyright (c) 2006-2015 The AGS-Community
+// Copyright (c) 2006-2016 The AGS-Community
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
