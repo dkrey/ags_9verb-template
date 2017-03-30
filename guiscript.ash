@@ -1,6 +1,6 @@
 // Script header
 // 9-verb MI-style template
-// Version: 1.5.1
+// Version: 1.5.3
 //
 // Authors: 
 //   Proskrito      first release
@@ -69,9 +69,10 @@
 // 1.5.1  switched to 32-bit and D3D9 by default
 //        exit rooms via doubleclick now works on objects
 //        option to hide the main gui during dialogs
-//
 // 1.5.2  bugfix regarding inventory using keyboard shortcuts
 //        added option disable the doubleclick entirely
+//
+// 1.5.3  added (optional) talk-to for objects and hotspots
 //        
 //
 // Licence:
