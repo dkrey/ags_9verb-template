@@ -1,6 +1,6 @@
 // Script header
 // 9-verb MI-style template
-// Version: 1.5.3
+// Version: 1.5.4
 //
 // Authors: 
 //   Proskrito      first release
@@ -71,8 +71,10 @@
 //        option to hide the main gui during dialogs
 // 1.5.2  bugfix regarding inventory using keyboard shortcuts
 //        added option disable the doubleclick entirely
-//
 // 1.5.3  added (optional) talk-to for objects and hotspots
+
+// 1.5.4  fixed label description
+//        Selected action is restored after unpausing
 //        
 //
 // Licence:
