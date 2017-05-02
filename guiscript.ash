@@ -72,9 +72,13 @@
 // 1.5.2  bugfix regarding inventory using keyboard shortcuts
 //        added option disable the doubleclick entirely
 // 1.5.3  added (optional) talk-to for objects and hotspots
-
 // 1.5.4  fixed label description
 //        Selected action is restored after unpausing
+//
+// 1.6    added running option
+//        removed invisble mouse cursors
+//        slight code cleanup
+//        removed obsolete dialog gui
 //        
 //
 // Licence:

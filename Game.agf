@@ -992,26 +992,6 @@
           <GUIMain>
             <NormalGUI>
               <OnClick />
-              <Height>57</Height>
-              <Width>320</Width>
-              <Left>0</Left>
-              <Top>143</Top>
-              <Clickable>True</Clickable>
-              <Visibility>PopupModal</Visibility>
-              <PopupYPos>0</PopupYPos>
-              <ZOrder>2</ZOrder>
-              <BorderColor>16</BorderColor>
-              <Transparency>0</Transparency>
-              <BackgroundColor>16</BackgroundColor>
-              <BackgroundImage>0</BackgroundImage>
-              <ID>2</ID>
-              <Name>gDialogsgui</Name>
-            </NormalGUI>
-            <Controls />
-          </GUIMain>
-          <GUIMain>
-            <NormalGUI>
-              <OnClick />
               <Height>121</Height>
               <Width>281</Width>
               <Left>20</Left>
@@ -1024,7 +1004,7 @@
               <Transparency>0</Transparency>
               <BackgroundColor>0</BackgroundColor>
               <BackgroundImage>208</BackgroundImage>
-              <ID>3</ID>
+              <ID>2</ID>
               <Name>gOptions</Name>
             </NormalGUI>
             <Controls>
@@ -1138,7 +1118,7 @@
                 <Locked>False</Locked>
                 <Width>141</Width>
                 <Left>23</Left>
-                <Top>31</Top>
+                <Top>33</Top>
                 <ZOrder>4</ZOrder>
                 <ID>5</ID>
                 <Name>OptionsSldMusic</Name>
@@ -1239,7 +1219,7 @@
                 <Locked>False</Locked>
                 <Width>170</Width>
                 <Left>10</Left>
-                <Top>52</Top>
+                <Top>48</Top>
                 <ZOrder>11</ZOrder>
                 <ID>11</ID>
                 <Name>OptionsSound</Name>
@@ -1278,7 +1258,7 @@
               <Transparency>0</Transparency>
               <BackgroundColor>0</BackgroundColor>
               <BackgroundImage>210</BackgroundImage>
-              <ID>4</ID>
+              <ID>3</ID>
               <Name>gPaused</Name>
             </NormalGUI>
             <Controls>
@@ -1313,7 +1293,7 @@
               <Transparency>0</Transparency>
               <BackgroundColor>0</BackgroundColor>
               <BackgroundImage>208</BackgroundImage>
-              <ID>5</ID>
+              <ID>4</ID>
               <Name>gRestore</Name>
             </NormalGUI>
             <Controls>
@@ -1430,7 +1410,7 @@
               <Transparency>0</Transparency>
               <BackgroundColor>0</BackgroundColor>
               <BackgroundImage>208</BackgroundImage>
-              <ID>6</ID>
+              <ID>5</ID>
               <Name>gSave</Name>
             </NormalGUI>
             <Controls>
@@ -1568,7 +1548,7 @@
               <Transparency>0</Transparency>
               <BackgroundColor>0</BackgroundColor>
               <BackgroundImage>-1</BackgroundImage>
-              <ID>7</ID>
+              <ID>6</ID>
               <Name>gSavetextbox</Name>
             </NormalGUI>
             <Controls>
@@ -1618,7 +1598,7 @@
               <Transparency>0</Transparency>
               <BackgroundColor>0</BackgroundColor>
               <BackgroundImage>210</BackgroundImage>
-              <ID>8</ID>
+              <ID>7</ID>
               <Name>gConfirmexit</Name>
             </NormalGUI>
             <Controls>
@@ -1653,7 +1633,7 @@
               <Transparency>0</Transparency>
               <BackgroundColor>0</BackgroundColor>
               <BackgroundImage>210</BackgroundImage>
-              <ID>9</ID>
+              <ID>8</ID>
               <Name>gRestart</Name>
             </NormalGUI>
             <Controls>
@@ -2792,11 +2772,6 @@ stop]]></Script>
                   <Sprite Slot="173" Width="45" Height="13" ColorDepth="16" Resolution="LowRes" AlphaChannel="False">
                     <Source>
                       <FileName>D:\temp\images\verbs_ger_hi_43.png</FileName>
-                    </Source>
-                  </Sprite>
-                  <Sprite Slot="174" Width="45" Height="13" ColorDepth="16" Resolution="LowRes" AlphaChannel="False">
-                    <Source>
-                      <FileName>D:\temp\images\verbs_ger_hi_44.png</FileName>
                     </Source>
                   </Sprite>
                 </Sprites>
@@ -4303,7 +4278,7 @@ stop]]></Script>
                 <Name>9-Verb MI-Style</Name>
                 <Description>9Verb GUI functions</Description>
                 <Author>Authors named in header file</Author>
-                <Version>1.5.4</Version>
+                <Version>1.6</Version>
                 <Key>1562295785</Key>
                 <IsHeader>False</IsHeader>
               </Script>
