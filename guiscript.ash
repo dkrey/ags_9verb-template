@@ -168,7 +168,8 @@ enum eLanguage {
   eLangES, 
   eLangIT, 
   eLangFR, 
-  eLangPT
+  eLangPT, 
+  eLangNL
 };
 
 // ============================= Math & Helper Functions =========================================
