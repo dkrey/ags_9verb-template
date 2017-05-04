@@ -3156,6 +3156,101 @@ stop]]></Script>
                   </Sprite>
                 </Sprites>
               </SpriteFolder>
+              <SpriteFolder Name="nl">
+                <SubFolders />
+                <Sprites>
+                  <Sprite Slot="174" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verb_nl_hi_14.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="233" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verb_nl_hi_16.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="234" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verb_nl_hi_18.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="235" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verb_nl_hi_24.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="236" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verb_nl_hi_25.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="237" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verb_nl_hi_26.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="238" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verb_nl_hi_42.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="239" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verb_nl_hi_43.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="240" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verb_nl_hi_44.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="241" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verbs_nl_14.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="242" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verbs_nl_16.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="243" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verbs_nl_18.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="244" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verbs_nl_24.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="245" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verbs_nl_25.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="246" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verbs_nl_26.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="247" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verbs_nl_42.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="248" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verbs_nl_43.gif</FileName>
+                    </Source>
+                  </Sprite>
+                  <Sprite Slot="249" Width="45" Height="13" ColorDepth="32" Resolution="LowRes" AlphaChannel="False">
+                    <Source>
+                      <FileName>temp/images/verbs_nl_44.gif</FileName>
+                    </Source>
+                  </Sprite>
+                </Sprites>
+              </SpriteFolder>
             </SubFolders>
             <Sprites>
               <Sprite Slot="123" Width="320" Height="47" ColorDepth="16" Resolution="LowRes" AlphaChannel="False">
@@ -4278,7 +4373,7 @@ stop]]></Script>
                 <Name>9-Verb MI-Style</Name>
                 <Description>9Verb GUI functions</Description>
                 <Author>Authors named in header file</Author>
-                <Version>1.6</Version>
+                <Version>1.6.1</Version>
                 <Key>1562295785</Key>
                 <IsHeader>False</IsHeader>
               </Script>

@@ -1,6 +1,6 @@
 // Script header
 // 9-verb MI-style template
-// Version: 1.5.4
+// Version: 1.6.1
 //
 // Authors: 
 //   Proskrito      first release
@@ -26,6 +26,7 @@
 //   French  - Monsieur OUXX
 //   Italian - Paolo
 //   Portuguese - Miguel
+//   Dutch   - arj0n
 //
 // Contact and Support: 
 //   Please visit the AGS-Forums at: http://adventuregamestudio.co.uk/forums
@@ -74,12 +75,13 @@
 // 1.5.3  added (optional) talk-to for objects and hotspots
 // 1.5.4  fixed label description
 //        Selected action is restored after unpausing
-//
 // 1.6    added running option
 //        removed invisble mouse cursors
 //        slight code cleanup
 //        removed obsolete dialog gui
 //        
+// 1.6.1  added dutch translation
+//        fixed runnnig bug in scrolling rooms
 //
 // Licence:
 //
