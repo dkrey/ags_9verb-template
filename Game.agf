@@ -634,7 +634,7 @@
         <UnloadedRooms>
           <UnloadedRoom>
             <Number>1</Number>
-            <Description IsNull="True" />
+            <Description />
           </UnloadedRoom>
           <UnloadedRoom>
             <Number>2</Number>
