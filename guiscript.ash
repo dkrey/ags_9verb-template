@@ -1,6 +1,6 @@
 // Script header
 // 9-verb MI-style template
-// Version: 1.6.1
+// Version: 1.6.2
 //
 // Authors: 
 //   Proskrito      first release
@@ -78,10 +78,14 @@
 // 1.6    added running option
 //        removed invisble mouse cursors
 //        slight code cleanup
-//        removed obsolete dialog gui
-//        
+//        removed obsolete dialog gui 
 // 1.6.1  added dutch translation
 //        fixed runnnig bug in scrolling rooms
+//
+// 1.6.2  More touchups on running mode
+//        minor bugfixes
+//        
+//
 //
 // Licence:
 //
@@ -175,6 +179,7 @@ enum eLanguage {
 };
 
 // ============================= Math & Helper Functions =========================================
+import float Distance(int x1, int y1, int x2, int y2);
 import int Absolute(int value);
 import int Offset(int point1, int point2);
 import int getButtonAction(int action);
