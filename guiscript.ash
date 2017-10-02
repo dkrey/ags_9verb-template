@@ -1,6 +1,6 @@
 // Script header
 // 9-verb MI-style template
-// Version: 1.6.2
+// Version: 1.6.3
 //
 // Authors: 
 //   Proskrito      first release
@@ -81,17 +81,17 @@
 //        removed obsolete dialog gui 
 // 1.6.1  added dutch translation
 //        fixed runnnig bug in scrolling rooms
-//
 // 1.6.2  More touchups on running mode
 //        minor bugfixes
-//        
+//
+// 1.6.3  Bugfix regarding roomclicks when gui is disabled
 //
 //
 // Licence:
 //
 // The MIT License (MIT)
 // 
-// Copyright (c) 2006-2016 The AGS-Community
+// Copyright (c) 2006-2017 The AGS-Community
 // 
 // Permission is hereby granted, free of charge, to any person obtaining a copy
 // of this software and associated documentation files (the "Software"), to deal
