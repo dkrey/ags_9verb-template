@@ -78,7 +78,28 @@ struct CustomDialogGui {
   int scroll_rows;
 
 
-  // internal Stuff from here on
+  //-------------------------------
+  //    Static functions
+  //-------------------------------
+  
+  import static int[] GetDefaultSettings_Sprites();
+  import static int[] GetDefaultSettings_Text();
+  import static int[] GetDefaultSettings_Borders();
+  import static int[] GetDefaultSettings_Layout();
+  import static int[] GetDefaultSettings_Autosize();
+  import static int[] GetDefaultSettings_Background();
+  
+  import void ApplySettings_Sprites(int settings[]);
+  import void ApplySettings_Text(int settings[]);
+  import void ApplySettings_Borders(int settings[]);
+  import void ApplySettings_Layout(int settings[]);
+  import void ApplySettings_Autosize(int settings[]);
+  import void ApplySettings_Background(int settings[]);
+  
+  //-------------------------------
+  //    internal Stuff from here on
+  //-------------------------------
+  
   int scroll_from;
   int scroll_to;
   
