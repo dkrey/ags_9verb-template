@@ -30,24 +30,37 @@
 // DEALINGS IN THE SOFTWARE.
 
 
+#define GUI_9VERB_SPRITESENUM_LENGTH  7      //This must be the size of enum 'GUI9Verb_SpritesEnum' +1 (because enums are 1-based)
+#define GUI_9VERB_TEXTENUM_LENGTH    11      //This must be the size of enum 'GUI9Verb_TextSettingsEnum' +1 (because enums are 1-based)
+#define GUI_9VERB_BORDERSENUM_LENGTH  7      //This must be the size of enum 'GUI9Verb_BordersSettingsEnum' +1 (because enums are 1-based)
+#define GUI_9VERB_LAYOUTENUM_LENGTH   9      //This must be the size of enum 'GUI9Verb_LayoutSettingsEnum' +1 (because enums are 1-based)
+#define GUI_9VERB_AUTOSIZEENUM_LENGTH 5      //This must be the size of enum 'GUI9Verb_AutoSizeSettingsEnum' +1 (because enums are 1-based)
+#define GUI_9VERB_BGENUM_LENGTH       5      //This must be the size of enum 'GUI9Verb_BgSettingsEnum' +1 (because enums are 1-based)
+
+
+
+
+  
 
 struct CustomDialogGui {
   import function init();
   DialogOptionsRenderingInfo *dialog_window;
   bool hide_gui_while_dialog;
-  int gui_xpos;
-  int gui_ypos;
-  int gui_width;
-  int gui_height;
 
-  bool autosize_height;
-  bool autosize_width;
+  //Settings
+  int sprites[GUI_9VERB_SPRITESENUM_LENGTH];
+  int textSettings[GUI_9VERB_TEXTENUM_LENGTH];
+  int bordersSettings [GUI_9VERB_BORDERSENUM_LENGTH];
+  int layoutSettings[GUI_9VERB_LAYOUTENUM_LENGTH];
+  int autoSizeSettings[GUI_9VERB_AUTOSIZEENUM_LENGTH];
+  int bgSettings[GUI_9VERB_BGENUM_LENGTH];
+  
   int yscreenborder;
   int xscreenborder;
-  int autosize_minheight;
-  int autosize_maxheight;
-  int autosize_minwidth;
-  int autosize_maxwidth;  
+  
+  bool autosize_height;
+  bool autosize_width;
+
   int auto_arrow_align;
   int auto_arrow_up_offset_x;
   int auto_arrow_up_offset_y;
@@ -55,46 +68,15 @@ struct CustomDialogGui {
   int auto_arrow_down_offset_y;  
   
   int bullet;
-  
-  int uparrow_img;
-  int uparrow_hi_img;
-  int uparrow_push_img;
-  int uparrow_xpos;
-  int uparrow_ypos;
-  
-  int downarrow_img;
-  int downarrow_hi_img;
-  int downarrow_push_img;
-  int downarrow_xpos;
-  int downarrow_ypos;
 
   float scroll_btn_delay;
-  int border_top;
-  int border_bottom;
-  int border_left;
-  int border_right;
-  int border_visible;
-  int border_color;
 
   bool mousewheel;
   bool reset_scrollstate;
   bool dialog_options_upwards;
-  int bg_img; 
-  int bg_img_scaling;
-  int bg_img_transparency;
-  int bg_color;
+
   int scroll_rows;
 
-  int text_font;
-  int text_color;
-  int text_color_active;
-  int text_alignment;
-  int text_bg;
-  int text_bg_xpos;
-  int text_bg_scaling;
-  int text_bg_transparency;  
-  int text_line_space;
-  int text_numbering;
 
   // internal Stuff from here on
   int scroll_from;
@@ -118,4 +100,75 @@ struct CDG_Arrow {
 
 import CustomDialogGui CDG;
 
+
+
+/***********************************************************************
+ * Enums for all kinds of settings
+ * 
+ ***********************************************************************/
+ 
+ //Sprites (6)
+enum GUI9Verb_SpritesEnum {
+  e9verb_uparrow_img, 
+  e9verb_uparrow_hi_img, 
+  e9verb_uparrow_push_img, 
+  e9verb_downarrow_img, 
+  e9verb_downarrow_hi_img, 
+  e9verb_downarrow_push_img
+};
+
+//Text settings (10)
+enum GUI9Verb_TextSettingsEnum {
+  e9verb_text_font, 
+  e9verb_text_color, 
+  e9verb_text_color_active, 
+  e9verb_text_alignment, 
+  e9verb_text_bg, 
+  e9verb_text_bg_xpos, 
+  e9verb_text_bg_scaling, 
+  e9verb_text_bg_transparency,  
+  e9verb_text_line_space, 
+  e9verb_text_numbering
+};
+
+//Borders settings (6)
+enum GUI9Verb_BordersSettingsEnum {
+  e9verb_border_top,
+  e9verb_border_bottom,
+  e9verb_border_left,
+  e9verb_border_right,
+  e9verb_border_visible,
+  e9verb_border_color
+};
+
+//Layout (positionning) (8)
+enum GUI9Verb_LayoutSettingsEnum {
+  e9verb_gui_xpos,
+  e9verb_gui_ypos,
+  e9verb_gui_width,
+  e9verb_gui_height,
+  
+  e9verb_uparrow_xpos,
+  e9verb_uparrow_ypos,
+  e9verb_downarrow_xpos,
+  e9verb_downarrow_ypos
+};
+
+//Autosize (4)
+enum GUI9Verb_AutoSizeSettingsEnum {
+  e9verb_autosize_minheight,
+  e9verb_autosize_maxheight,
+  e9verb_autosize_minwidth,
+  e9verb_autosize_maxwidth
+};
+
+
+
+//Background (4)
+enum GUI9Verb_BgSettingsEnum {
+  e9verb_bg_img, 
+  e9verb_bg_img_scaling, 
+  e9verb_bg_img_transparency, 
+  e9verb_bg_color
+};
 
