@@ -29,15 +29,89 @@
 // FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER 
 // DEALINGS IN THE SOFTWARE.
 
-
+/*
 #define GUI_9VERB_SPRITESENUM_LENGTH  7      //This must be the size of enum 'GUI9Verb_SpritesEnum' +1 (because enums are 1-based)
 #define GUI_9VERB_TEXTENUM_LENGTH    11      //This must be the size of enum 'GUI9Verb_TextSettingsEnum' +1 (because enums are 1-based)
 #define GUI_9VERB_BORDERSENUM_LENGTH  7      //This must be the size of enum 'GUI9Verb_BordersSettingsEnum' +1 (because enums are 1-based)
 #define GUI_9VERB_LAYOUTENUM_LENGTH   9      //This must be the size of enum 'GUI9Verb_LayoutSettingsEnum' +1 (because enums are 1-based)
 #define GUI_9VERB_AUTOSIZEENUM_LENGTH 5      //This must be the size of enum 'GUI9Verb_AutoSizeSettingsEnum' +1 (because enums are 1-based)
 #define GUI_9VERB_BGENUM_LENGTH       5      //This must be the size of enum 'GUI9Verb_BgSettingsEnum' +1 (because enums are 1-based)
+*/
 
 
+/***********************************************************************
+ * Enums for all kinds of settings
+ * 
+ ***********************************************************************/
+ 
+ //Sprites (6)
+enum GUI9Verb_SpritesEnum {
+  e9verb_uparrow_img, 
+  e9verb_uparrow_hi_img, 
+  e9verb_uparrow_push_img, 
+  e9verb_downarrow_img, 
+  e9verb_downarrow_hi_img, 
+  e9verb_downarrow_push_img, 
+  e9verb_sprites_enumsize
+};
+
+//Text settings (10)
+enum GUI9Verb_TextSettingsEnum {
+  e9verb_text_font, 
+  e9verb_text_color, 
+  e9verb_text_color_active, 
+  e9verb_text_alignment, 
+  e9verb_text_bg, 
+  e9verb_text_bg_xpos, 
+  e9verb_text_bg_scaling, 
+  e9verb_text_bg_transparency,  
+  e9verb_text_line_space, 
+  e9verb_text_enumsize
+};
+
+//Borders settings (6)
+enum GUI9Verb_BordersSettingsEnum {
+  e9verb_border_top,
+  e9verb_border_bottom,
+  e9verb_border_left,
+  e9verb_border_right,
+  e9verb_border_color, 
+  e9verb_borders_enumsize
+};
+
+//Layout (positionning) (8)
+enum GUI9Verb_LayoutSettingsEnum {
+  e9verb_gui_xpos,
+  e9verb_gui_ypos,
+  e9verb_gui_width,
+  e9verb_gui_height,
+  
+  e9verb_uparrow_xpos,
+  e9verb_uparrow_ypos,
+  e9verb_downarrow_xpos,
+  e9verb_downarrow_ypos, 
+  e9verb_layout_enumsize
+};
+
+//Autosize (4)
+enum GUI9Verb_AutoSizeSettingsEnum {
+  e9verb_autosize_minheight,
+  e9verb_autosize_maxheight,
+  e9verb_autosize_minwidth,
+  e9verb_autosize_maxwidth, 
+  e9verb_autosize_enumsize
+};
+
+
+
+//Background (4)
+enum GUI9Verb_BgSettingsEnum {
+  e9verb_bg_img, 
+  e9verb_bg_img_scaling, 
+  e9verb_bg_img_transparency, 
+  e9verb_bg_color, 
+  e9verb_bg_enumsize
+};
 
 
   
@@ -48,12 +122,15 @@ struct CustomDialogGui {
   bool hide_gui_while_dialog;
 
   //Settings
-  int sprites[GUI_9VERB_SPRITESENUM_LENGTH];
-  int textSettings[GUI_9VERB_TEXTENUM_LENGTH];
-  int bordersSettings [GUI_9VERB_BORDERSENUM_LENGTH];
-  int layoutSettings[GUI_9VERB_LAYOUTENUM_LENGTH];
-  int autoSizeSettings[GUI_9VERB_AUTOSIZEENUM_LENGTH];
-  int bgSettings[GUI_9VERB_BGENUM_LENGTH];
+  int sprites[e9verb_sprites_enumsize];
+  int textSettings[e9verb_text_enumsize];
+  int bordersSettings [e9verb_borders_enumsize];
+  int layoutSettings[e9verb_layout_enumsize];
+  int autoSizeSettings[e9verb_autosize_enumsize];
+  int bgSettings[e9verb_bg_enumsize];
+  
+  bool border_visible;
+  bool text_numbering;
   
   int yscreenborder;
   int xscreenborder;
@@ -123,73 +200,5 @@ import CustomDialogGui CDG;
 
 
 
-/***********************************************************************
- * Enums for all kinds of settings
- * 
- ***********************************************************************/
- 
- //Sprites (6)
-enum GUI9Verb_SpritesEnum {
-  e9verb_uparrow_img, 
-  e9verb_uparrow_hi_img, 
-  e9verb_uparrow_push_img, 
-  e9verb_downarrow_img, 
-  e9verb_downarrow_hi_img, 
-  e9verb_downarrow_push_img
-};
 
-//Text settings (10)
-enum GUI9Verb_TextSettingsEnum {
-  e9verb_text_font, 
-  e9verb_text_color, 
-  e9verb_text_color_active, 
-  e9verb_text_alignment, 
-  e9verb_text_bg, 
-  e9verb_text_bg_xpos, 
-  e9verb_text_bg_scaling, 
-  e9verb_text_bg_transparency,  
-  e9verb_text_line_space, 
-  e9verb_text_numbering
-};
-
-//Borders settings (6)
-enum GUI9Verb_BordersSettingsEnum {
-  e9verb_border_top,
-  e9verb_border_bottom,
-  e9verb_border_left,
-  e9verb_border_right,
-  e9verb_border_visible,
-  e9verb_border_color
-};
-
-//Layout (positionning) (8)
-enum GUI9Verb_LayoutSettingsEnum {
-  e9verb_gui_xpos,
-  e9verb_gui_ypos,
-  e9verb_gui_width,
-  e9verb_gui_height,
-  
-  e9verb_uparrow_xpos,
-  e9verb_uparrow_ypos,
-  e9verb_downarrow_xpos,
-  e9verb_downarrow_ypos
-};
-
-//Autosize (4)
-enum GUI9Verb_AutoSizeSettingsEnum {
-  e9verb_autosize_minheight,
-  e9verb_autosize_maxheight,
-  e9verb_autosize_minwidth,
-  e9verb_autosize_maxwidth
-};
-
-
-
-//Background (4)
-enum GUI9Verb_BgSettingsEnum {
-  e9verb_bg_img, 
-  e9verb_bg_img_scaling, 
-  e9verb_bg_img_transparency, 
-  e9verb_bg_color
-};
 
