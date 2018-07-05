@@ -1656,26 +1656,6 @@
               </GUILabel>
             </Controls>
           </GUIMain>
-          <GUIMain>
-            <NormalGUI>
-              <OnClick />
-              <Height>200</Height>
-              <Width>300</Width>
-              <Left>0</Left>
-              <Top>0</Top>
-              <Clickable>True</Clickable>
-              <Visibility>Normal</Visibility>
-              <PopupYPos>0</PopupYPos>
-              <ZOrder>0</ZOrder>
-              <BorderColor>2</BorderColor>
-              <Transparency>0</Transparency>
-              <BackgroundColor>63488</BackgroundColor>
-              <BackgroundImage>0</BackgroundImage>
-              <ID>9</ID>
-              <Name>gGui1</Name>
-            </NormalGUI>
-            <Controls />
-          </GUIMain>
         </GUIs>
       </GUIFolder>
     </GUIs>
@@ -1939,10 +1919,10 @@
             <StartX>160</StartX>
             <StartY>160</StartY>
             <UniformMovementSpeed>True</UniformMovementSpeed>
-            <MovementSpeed>3</MovementSpeed>
+            <MovementSpeed>6</MovementSpeed>
             <MovementSpeedX>3</MovementSpeedX>
             <MovementSpeedY>0</MovementSpeedY>
-            <AnimationDelay>4</AnimationDelay>
+            <AnimationDelay>2</AnimationDelay>
             <SpeechAnimationDelay>5</SpeechAnimationDelay>
             <SpeechColor>12</SpeechColor>
             <Solid>True</Solid>
@@ -2052,7 +2032,11 @@ return
 
 @5
 Bman: Bye.
-stop]]></Script>
+stop
+@6
+Bman: Scrolling much?
+return
+]]></Script>
             <DialogOptions>
               <DialogOption>
                 <ID>1</ID>
@@ -2081,6 +2065,12 @@ stop]]></Script>
               <DialogOption>
                 <ID>5</ID>
                 <Text xml:space="preserve">See you around.</Text>
+                <Show>True</Show>
+                <Say>True</Say>
+              </DialogOption>
+              <DialogOption>
+                <ID>6</ID>
+                <Text xml:space="preserve">This is to illustrate dialog arrows</Text>
                 <Show>True</Show>
                 <Say>True</Say>
               </DialogOption>
@@ -4357,7 +4347,7 @@ stop]]></Script>
           <ScriptAndHeader>
             <ScriptAndHeader_Header>
               <Script>
-                <FileName>dialogscript.ash</FileName>
+                <FileName>CustomDialogGui.ash</FileName>
                 <Name>CustomDialogGui</Name>
                 <Description>provides an easy way to customize Dialogs GUIs</Description>
                 <Author>abstauber</Author>
@@ -4368,7 +4358,7 @@ stop]]></Script>
             </ScriptAndHeader_Header>
             <ScriptAndHeader_Script>
               <Script>
-                <FileName>dialogscript.asc</FileName>
+                <FileName>CustomDialogGui.asc</FileName>
                 <Name>Dialogscript</Name>
                 <Description>simplified fork of CDG</Description>
                 <Author>abstauber</Author>
