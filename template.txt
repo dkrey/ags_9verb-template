@@ -1,5 +1,5 @@
 Welcome to the Lucasarts-style 9-verb template!
 
-If you're just starting off with AGS, you might find it easier to use the Default Game template to begin with.
+The development of this template has ended, it will still receive bugfixes, but no more features will be added. If you are starting a new project, please consider using its successor "Tumbleweed Verbs".
 
 When using this template, make sure you read the "9Verbs.pdf" help file so that you understand how to use it!
