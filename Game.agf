@@ -4376,7 +4376,7 @@ stop]]></Script>
                 <Name>9-Verb MI-Style</Name>
                 <Description>9Verb GUI functions</Description>
                 <Author>Authors named in header file</Author>
-                <Version>1.6.3</Version>
+                <Version>1.6.4</Version>
                 <Key>1562295785</Key>
                 <IsHeader>False</IsHeader>
               </Script>
